@@ -35,17 +35,13 @@ export class UsersComponent implements OnInit, PipeTransform {
     });
   }
 
-  // tslint:disable-next-line:member-ordering
   @ViewChild(MatSort) sort: MatSort;
-  // tslint:disable-next-line:member-ordering
+
   dataSource;
-  // tslint:disable-next-line:member-ordering
+
   showColumns = ['name', 'username', 'email'];
-  // tslint:disable-next-line:member-ordering
 
   constructor(private userService: UsersService) {}
-
-  // tslint:disable-next-line:use-life-cycle-interface
 
   ngOnInit() {
     this.userService.getUsers().subscribe(results => {
