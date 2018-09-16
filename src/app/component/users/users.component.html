@@ -1,0 +1,26 @@
+<div class="col-md-12 div-search">
+
+  <input type="text" [ngModel]="range" (ngModelChange)="ngOnFilter($event)" class="search" [(ngModel)]="searchText">
+  <input type="submit" class="submit" value="Search" >
+
+</div>
+
+
+<div class="col-md-12 tab">
+  <mat-table [dataSource]="dataSource" matSort class="table">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+      <mat-cell *matCellDef="let users">{{users.name}}</mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="username">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
+      <mat-cell *matCellDef="let users">{{users.username}}</mat-cell>
+    </ng-container>
+    <ng-container  matColumnDef="email">
+      <mat-header-cell *matHeaderCellDef mat-sort-header >Email</mat-header-cell>
+      <mat-cell *matCellDef="let users " >{{users.email}}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="showColumns" color="primary" class="table-header"></mat-header-row>
+    <mat-row *matRowDef="let row; columns:showColumns " class="table-body"></mat-row>
+  </mat-table>
+</div>
